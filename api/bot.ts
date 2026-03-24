@@ -1,6 +1,6 @@
 import { webhookCallback } from "grammy";
-import { createTelegramBot } from "../src/bot/telegram.js";
-import { validateConfig } from "../src/config/env.js";
+import { createTelegramBot } from "../src/bot/telegram";
+import { validateConfig } from "../src/config/env";
 
 // Retrasamos la validación hasta que llegue al handler, o si no exportamos un handler seguro.
 let bot: any;

@@ -1,6 +1,6 @@
 import { Bot } from "grammy";
-import { config } from "../config/env.js";
-import { runAgentLoop } from "../agent/loop.js";
+import { config } from "../config/env";
+import { runAgentLoop } from "../agent/loop";
 
 export function createTelegramBot() {
   const bot = new Bot(config.telegram.botToken);
