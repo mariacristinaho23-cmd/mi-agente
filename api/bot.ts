@@ -12,26 +12,17 @@ try {
   // Un bot de respaldo que no hace nada para que The Vercel function can compile but returns 500 cleanly
 }
 
-export const maxDuration = 60; // Maximo en Vercel Hobby para dar tiempo a que la IA piense
+export const maxDuration = 60; // Maximo en Vercel Hobby
 
 export default async function handle(req: any, res: any) {
   if (!bot) {
     return res.status(500).json({ error: "El bot no inicializó correctamente." });
   }
 
-  if (req.method === "POST" && req.body) {
-    try {
-      console.log("Recibido update:", JSON.stringify(req.body).substring(0, 100));
-      // Esperamos a que el bot termine de contestar
-      await bot.handleUpdate(req.body);
-      res.status(200).json({ ok: true });
-    } catch (error: any) {
-      console.error("Error procesando mensaje:", error);
-      // Retornar 200 para que Telegram no reintente el mismo error 100 veces
-      res.status(200).json({ error: error.message });
-    }
-  } else {
-    // Si alguien entra desde el navegador web
-    res.status(200).send("🤖 Agente online y escuchando (Webhook Vercel).");
-  }
+  // Utilizamos el adaptador "express" de grammy que funciona nativamente con
+  // la API de Node.js de Vercel porque Vercel ya parsea req.body como JSON.
+  // webhookCallback se encarga de llamar a bot.init() si es necesario.
+  const fn = webhookCallback(bot, "express", { timeoutMilliseconds: 55000 });
+  
+  return fn(req, res);
 }
