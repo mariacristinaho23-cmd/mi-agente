@@ -1,5 +1,5 @@
-import { validateConfig } from "./config/env";
-import { createTelegramBot } from "./bot/telegram";
+import { validateConfig } from "./config/env.js";
+import { createTelegramBot } from "./bot/telegram.js";
 
 
 async function bootstrap() {

@@ -1,4 +1,4 @@
-import { config } from "../config/env";
+import { config } from "../config/env.js";
 
 export interface APIMessage {
   role: "system" | "user" | "assistant" | "tool";

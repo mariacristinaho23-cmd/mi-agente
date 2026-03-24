@@ -1,6 +1,6 @@
-import { memory } from "../memory/firebase";
-import { chatCompletion, APIMessage } from "./llm";
-import { availableTools, executeTool } from "./tools";
+import { memory } from "../memory/firebase.js";
+import { chatCompletion, APIMessage } from "./llm.js";
+import { availableTools, executeTool } from "./tools.js";
 
 const MAX_ITERATIONS = 5;
 

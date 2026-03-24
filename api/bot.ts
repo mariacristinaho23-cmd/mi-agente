@@ -1,6 +1,6 @@
 import { webhookCallback } from "grammy";
-import { createTelegramBot } from "./_src/bot/telegram";
-import { validateConfig } from "./_src/config/env";
+import { createTelegramBot } from "./_src/bot/telegram.js";
+import { validateConfig } from "./_src/config/env.js";
 
 let bot: any;
 try {
