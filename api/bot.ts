@@ -12,7 +12,7 @@ try {
   // Un bot de respaldo que no hace nada para que The Vercel function can compile but returns 500 cleanly
 }
 
-export const maxDuration = 60; // Maximo en Vercel Hobby
+// Eliminado maxDuration de exportación explícita (puesto en vercel.json)
 
 export default async function handle(req: any, res: any) {
   if (!bot) {
