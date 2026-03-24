@@ -10,8 +10,15 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+let app: any;
+let db: any;
+
+try {
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+} catch (error) {
+  console.error("🔥 Error crítico al inicializar Firebase. Posiblemente faltan variables de entorno en Vercel:", error);
+}
 
 export interface MessageRecord {
   role: "user" | "assistant" | "system" | "tool";
