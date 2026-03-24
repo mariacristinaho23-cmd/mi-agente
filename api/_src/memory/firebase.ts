@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, query, where, orderBy, limit, getDocs, deleteDoc, serverTimestamp } from "firebase/firestore";
+import { getFirestore, collection, addDoc, query, where, orderBy, limit, getDocs, deleteDoc, serverTimestamp } from "firebase/firestore/lite";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
